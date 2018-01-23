@@ -83,7 +83,7 @@ list: [ -f $CFGDIR/groups ] && f=$CFGDIR/groups || f=$CFGDIR/groups.d/local.cfg;
 map: /opt/miniconda2/bin/python /etc/clustershell/clustershell_dynamic_groups_foreman/clustershell_dynamic_groups_foreman.py --group $GROUP
 all: /opt/miniconda2/bin/python /etc/clustershell/clustershell_dynamic_groups_foreman/clustershell_dynamic_groups_foreman.py --all-hosts
 list: /opt/miniconda2/bin/python /etc/clustershell/clustershell_dynamic_groups_foreman/clustershell_dynamic_groups_foreman.py --list-groups
-reverse: /opt/miniconda2/bin/python /etc/clustershell/clustershell_dynamic_groups_foreman/clustershell_dynamic_groups_foreman.py $NODE
+reverse: /opt/miniconda2/bin/python /etc/clustershell/clustershell_dynamic_groups_foreman/clustershell_dynamic_groups_foreman.py --reverse $NODE
 ```
 
 And check it's working
