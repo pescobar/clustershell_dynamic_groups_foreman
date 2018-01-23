@@ -397,7 +397,6 @@ class ForemanInventory(object):
 
 class ClusterShellInventory(ForemanInventory):
     config_paths = [
-        "/etc/clustershell/foreman.ini",
         os.path.dirname(os.path.realpath(__file__)) + '/foreman.ini',
     ]
     
