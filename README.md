@@ -96,5 +96,5 @@ Try `/opt/miniconda2/bin/python /etc/clustershell/clustershell_dynamic_groups_fo
 available groups in foreman and then try:
 
 ```
-$> clush -bg group_name 'uptime'
+$> clush -bw @foreman_hostgroup_compute_nodes 'uname -r'
 ```
