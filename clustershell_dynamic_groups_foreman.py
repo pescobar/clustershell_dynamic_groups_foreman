@@ -291,7 +291,7 @@ class ForemanInventory(object):
             # attributes.
             groupby = copy.copy(params)
             for k, v in host.items():
-                if isinstance(v, basestring):
+                if isinstance(v, str):
                     groupby[k] = self.to_safe(v)
                 elif isinstance(v, int):
                     groupby[k] = v
@@ -399,31 +399,31 @@ class ClusterShellInventory(ForemanInventory):
     config_paths = [
         os.path.dirname(os.path.realpath(__file__)) + '/foreman.ini',
     ]
-    
+
     def _print_data(self):
         """ print data to feed clustershell dynamic groups """
 
         if self.args.list_groups:
-            for i in self.inventory.iteritems():
+            for i in self.inventory.items():
                 group_name = i[0]
                 print(group_name)
-        
+
         if self.args.group:
             print(",".join(self.inventory[self.args.group]))
-        
+
         if self.args.all_hosts:
             print(",".join(self.inventory['all']))
-       
+
         if self.args.reverse:
             host_groups = []
-            for i in self.inventory.iteritems():
+            for i in self.inventory.items():
                 group_name = i[0]
                 hosts_list = i[1]
                 if self.args.reverse in hosts_list:
                     host_groups.append(group_name)
             for g in host_groups:
                 print(g)
-    
+
     def parse_cli_args(self):
         """Command line argument processing"""
 
@@ -435,7 +435,7 @@ class ClusterShellInventory(ForemanInventory):
         parser.add_argument('--refresh-cache', action='store_true', default=False,
                             help='Force refresh of cache by making API requests to foreman (default: False - use cache files)')
         self.args = parser.parse_args()
-    
+
 if __name__ == '__main__':
     inv = ClusterShellInventory()
     sys.exit(not inv.run())
